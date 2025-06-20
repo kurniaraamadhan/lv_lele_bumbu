@@ -1,0 +1,309 @@
+/* src/app/admin/page.module.css */
+
+/* Global fade-in for sections */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    max-width: 1200px; /* Lebar lebih besar untuk dashboard */
+    margin: 0 auto;
+    background-color: #f8f9fa; /* Latar belakang lebih terang */
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* Bayangan lebih halus */
+}
+
+.mainTitle {
+    text-align: center;
+    color: #2c3e50; /* Warna lebih gelap */
+    margin-bottom: 35px;
+    border-bottom: 2px solid #3498db; /* Garis bawah biru */
+    padding-bottom: 15px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.logoutButton {
+    background-color: #e74c3c; /* Merah untuk logout */
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    float: right;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logoutButton:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.section {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 35px;
+    animation: fadeIn 0.6s ease-out forwards; /* Animasi fade-in untuk setiap section */
+    opacity: 0; /* Mulai dari tersembunyi */
+}
+
+/* Apply animation delay for staggered effect */
+.section:nth-child(2) { animation-delay: 0.1s; } /* Seller Info */
+.section:nth-child(3) { animation-delay: 0.2s; } /* Add/Edit Product */
+.section:nth-child(4) { animation-delay: 0.3s; } /* Product List */
+
+
+.sectionTitle {
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 12px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; /* Jarak antar form group lebih besar */
+    margin-bottom: 25px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="number"],
+.formGroup textarea,
+.formGroup select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 80px; /* Tinggi textarea lebih besar */
+}
+
+.checkboxGroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkboxGroup input[type="checkbox"] {
+    transform: scale(1.2); /* Checkbox sedikit lebih besar */
+    margin-right: 5px;
+}
+
+.submitButton {
+    background-color: #2ecc71; /* Hijau cerah */
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    width: auto; /* Otomatis lebar */
+    min-width: 150px; /* Lebar minimum */
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+}
+
+.submitButton:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(46, 204, 113, 0.4);
+}
+
+.productsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: 8px; /* Sudut tabel membulat */
+    overflow: hidden; /* Penting agar border-radius berfungsi di tabel */
+}
+
+.productsTable th,
+.productsTable td {
+    border: 1px solid #e0e0e0; /* Garis border lebih halus */
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.productsTable th {
+    background-color: #ecf0f1; /* Header tabel abu-abu muda */
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.productsTable tr:nth-child(even) {
+    background-color: #fcfcfc; /* Zebra stripe lebih halus */
+}
+
+.productsTable tr:hover {
+    background-color: #e9eff1; /* Efek hover pada baris tabel */
+}
+
+.actionButton {
+    background-color: #3498db; /* Biru terang */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px; /* Jarak antar tombol aksi */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.actionButton:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+}
+
+.deleteButton {
+    background-color: #e74c3c; /* Merah untuk hapus */
+}
+
+.deleteButton:hover {
+    background-color: #c0392b;
+}
+
+.statusText {
+    font-weight: bold;
+}
+
+.statusAvailable {
+    color: #27ae60; /* Hijau tua */
+}
+
+.statusOutOfStock {
+    color: #c0392b; /* Merah tua */
+}
+
+.loadingText, .errorText {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.errorText {
+    color: #e74c3c;
+}
+
+.productImage {
+    width: 60px; /* Ukuran gambar di tabel admin lebih besar */
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+/* Media Queries untuk responsifitas */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    .mainTitle {
+        font-size: 2em;
+    }
+    .section {
+        padding: 15px;
+    }
+    .sectionTitle {
+        font-size: 1.5em;
+    }
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+    .submitButton {
+        width: 100%;
+        margin-left: 0 !important; /* Override inline style */
+    }
+
+    /* Tabel responsif */
+    .productsTable {
+        border-radius: 0; /* Hapus border-radius di tabel penuh */
+    }
+    .productsTable thead {
+        display: none; /* Sembunyikan header tabel di layar kecil */
+    }
+
+    .productsTable, .productsTable tbody, .productsTable tr, .productsTable td {
+        display: block; /* Buat sel tabel menjadi blok */
+        width: 100%;
+    }
+
+    .productsTable tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Bayangan untuk setiap baris */
+        background-color: #ffffff;
+    }
+
+    .productsTable td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%; /* Ruang untuk label */
+    }
+
+    .productsTable td::before {
+        content: attr(data-label); /* Gunakan atribut data-label sebagai label */
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: #666;
+    }
+    .productsTable td:last-child { /* Untuk tombol aksi */
+        text-align: center;
+        padding-left: 10px;
+    }
+    .productsTable td:last-child::before {
+        content: ""; /* Hapus label untuk kolom aksi */
+    }
+}

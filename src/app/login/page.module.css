@@ -1,0 +1,122 @@
+/* src/app/login/page.module.css */
+
+/* Keyframe animation for subtle background gradient movement */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font lebih modern */
+    background: linear-gradient(135deg, #6dd5ed, #2193b0, #007bff); /* Gradien biru */
+    background-size: 400% 400%; /* Membuat gradien lebih besar untuk animasi */
+    animation: gradientAnimation 15s ease infinite; /* Animasi berulang */
+    color: #333;
+}
+
+.loginBox {
+    background-color: rgba(255, 255, 255, 0.95); /* Sedikit transparan */
+    padding: 40px;
+    border-radius: 12px; /* Sudut lebih bulat */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Bayangan lebih dalam */
+    width: 100%;
+    max-width: 420px; /* Sedikit lebih lebar */
+    text-align: center;
+    transform: translateY(0); /* Untuk animasi awal */
+    opacity: 0; /* Mulai dari tersembunyi */
+    animation: fadeInSlideUp 0.8s ease-out forwards; /* Animasi masuk */
+}
+
+/* Keyframe for login box entrance animation */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    color: #007bff; /* Warna judul lebih cerah */
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+.formGroup {
+    margin-bottom: 20px; /* Jarak antar group lebih besar */
+    text-align: left;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* Lebih tebal */
+    color: #444;
+    font-size: 0.95em;
+}
+
+.formGroup input {
+    width: 100%;
+    padding: 12px 15px; /* Padding lebih besar */
+    border: 1px solid #c0c0c0; /* Border lebih soft */
+    border-radius: 6px; /* Sudut input lebih bulat */
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transisi saat fokus */
+}
+
+.formGroup input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Glow effect saat fokus */
+}
+
+.errorMessage {
+    color: #dc3545;
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease-out; /* Animasi fade-in untuk pesan error */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.loginButton {
+    width: 100%;
+    padding: 14px; /* Padding tombol lebih besar */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.15em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transisi untuk hover */
+    margin-top: 25px;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3); /* Bayangan tombol */
+}
+
+.loginButton:hover {
+    background-color: #0056b3; /* Warna lebih gelap saat hover */
+    transform: translateY(-2px); /* Efek angkat sedikit */
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4); /* Bayangan lebih dalam saat hover */
+}
+
+.loginButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
